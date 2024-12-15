@@ -11,16 +11,16 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Upgrade pip and install Flask using Windows batch commands
-                bat 'python -m pip install --upgrade pip'
-                bat 'python -m pip install flask'
+                // Use the full path to Python for pip installation
+                bat '"C:\\Users\\monis zahid\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install --upgrade pip'
+                bat '"C:\\Users\\monis zahid\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install flask'
             }
         }
 
         stage('Run Application') {
             steps {
-                // Run the Flask app in the background
-                bat 'start python views.py'
+                // Start the Flask app using the full Python path
+                bat 'start "FlaskApp" "C:\\Users\\monis zahid\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" views.py'
             }
         }
     }
